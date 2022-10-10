@@ -6,13 +6,15 @@ import {
   Param,
   Patch,
   Post,
+  Query,
 } from '@nestjs/common';
 
 @Controller('categories')
 export class CategoriesController {
   @Get()
-  findAll() {
-    return `This action returns all categories`;
+  findAll(@Query() paginationQuery) {
+    const { limit, offset } = paginationQuery;
+    return `This action returns all categories. Limit ${limit}, offset ${offset}`;
   }
 
   @Get(':id')
