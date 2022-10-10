@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { Category } from './entities/category.entity';
 
 @Injectable()
@@ -16,7 +16,11 @@ export class CategoriesService {
   }
 
   findOne(id: string) {
-    return this.categories.find((item) => item.id === +id);
+    const category = this.categories.find((item) => item.id === +id);
+    if (!category) {
+      throw new NotFoundException(`Category #${id} not found`);
+    }
+    return category;
   }
 
   create(createCategoryDto: any) {
