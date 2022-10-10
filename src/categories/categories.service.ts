@@ -1,44 +1,49 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 import { Category } from './entities/category.entity';
+import { CreateCategoryDto } from './dto/create-category.dto';
+import { UpdateCategoryDto } from './dto/update-category.dto';
 
 @Injectable()
 export class CategoriesService {
-  private categories: Category[] = [
-    {
-      id: '1',
-      name: 'Teclado',
-      status: true,
-    },
-  ];
+  constructor(
+    @InjectRepository(Category)
+    private readonly categoryRepository: Repository<Category>,
+  ) {}
 
   findAll() {
-    return this.categories;
+    return this.categoryRepository.find();
   }
 
-  findOne(id: string) {
-    const category = this.categories.find((item) => item.id === id);
+  async findOne(id: string) {
+    const category = await this.categoryRepository.findOne({
+      where: { id: id },
+    });
     if (!category) {
       throw new NotFoundException(`Category #${id} not found`);
     }
     return category;
   }
 
-  create(createCategoryDto: any) {
-    this.categories.push(createCategoryDto);
-    return createCategoryDto;
+  create(createCategoryDto: CreateCategoryDto) {
+    const category = this.categoryRepository.create(createCategoryDto);
+    return this.categoryRepository.save(category);
   }
 
-  update(id: string, updateCategoryDto: any) {
-    const exisitingCategory = this.findOne(id);
-    if (exisitingCategory) {
-      // Update the existing category
+  async update(id: string, updateCategoryDto: UpdateCategoryDto) {
+    const category = await this.categoryRepository.preload({
+      id: id,
+      ...updateCategoryDto,
+    });
+    if (!category) {
+      throw new NotFoundException(`Category #${id} not found`);
     }
+    return this.categoryRepository.save(category);
   }
 
-  remove(id: string) {
-    const categoryIndex = this.categories.findIndex((item) => item.id === id);
-    if (categoryIndex >= 0) {
-      this.categories.splice(categoryIndex, 1);
-    }
+  async remove(id: string) {
+    const category = await this.findOne(id);
+    return this.categoryRepository.remove(category);
   }
 }
