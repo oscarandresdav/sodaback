@@ -5,7 +5,7 @@ import { Category } from './entities/category.entity';
 export class CategoriesService {
   private categories: Category[] = [
     {
-      id: 1,
+      id: '1',
       name: 'Teclado',
       status: true,
     },
@@ -16,7 +16,7 @@ export class CategoriesService {
   }
 
   findOne(id: string) {
-    const category = this.categories.find((item) => item.id === +id);
+    const category = this.categories.find((item) => item.id === id);
     if (!category) {
       throw new NotFoundException(`Category #${id} not found`);
     }
@@ -36,7 +36,7 @@ export class CategoriesService {
   }
 
   remove(id: string) {
-    const categoryIndex = this.categories.findIndex((item) => item.id === +id);
+    const categoryIndex = this.categories.findIndex((item) => item.id === id);
     if (categoryIndex >= 0) {
       this.categories.splice(categoryIndex, 1);
     }
