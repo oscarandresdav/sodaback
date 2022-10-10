@@ -25,6 +25,7 @@ export class CategoriesService {
 
   create(createCategoryDto: any) {
     this.categories.push(createCategoryDto);
+    return createCategoryDto;
   }
 
   update(id: string, updateCategoryDto: any) {
