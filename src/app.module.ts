@@ -3,10 +3,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CategoriesModule } from './categories/categories.module';
+import { ProductsModule } from './products/products.module';
 
 @Module({
   imports: [
-    CategoriesModule,
     TypeOrmModule.forRoot({
       type: 'mysql', // type of our database
       host: 'localhost', // database host
@@ -17,6 +17,8 @@ import { CategoriesModule } from './categories/categories.module';
       autoLoadEntities: true, // models will be loaded automatically
       synchronize: true, // your entities will be synced with the database(recommended: disable in prod)
     }),
+    CategoriesModule,
+    ProductsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

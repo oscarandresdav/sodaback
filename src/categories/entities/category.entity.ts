@@ -1,7 +1,9 @@
+import { Product } from './../../products/entities/product.entity';
 import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
   VersionColumn,
@@ -26,4 +28,7 @@ export class Category {
 
   @VersionColumn({ nullable: true })
   revision: number;
+
+  @OneToMany(() => Product, (product) => product.category)
+  products: Product[];
 }
