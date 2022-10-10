@@ -1,3 +1,4 @@
+import { CategoriesService } from './categories.service';
 import {
   Body,
   Controller,
@@ -11,30 +12,31 @@ import {
 
 @Controller('categories')
 export class CategoriesController {
+  constructor(private readonly categoriesService: CategoriesService) {}
+
   @Get()
   findAll(@Query() paginationQuery) {
-    const { limit, offset } = paginationQuery;
-    return `This action returns all categories. Limit ${limit}, offset ${offset}`;
+    // const { limit, offset } = paginationQuery;
+    return this.categoriesService.findAll();
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return `This action returns #${id} category`;
+    return this.categoriesService.findOne(id);
   }
 
   @Post()
   create(@Body() body) {
-    return body;
-    // retur This action creates a category;
+    return this.categoriesService.create(body);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() body) {
-    return `This action updates #${id} category`;
+    return this.categoriesService.update(id, body);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return `This action removes #${id} category`;
+    return this.categoriesService.remove(id);
   }
 }
