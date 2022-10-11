@@ -4,6 +4,7 @@ import { Repository } from 'typeorm';
 import { Category } from './entities/category.entity';
 import { CreateCategoryDto } from './dto/create-category.dto';
 import { UpdateCategoryDto } from './dto/update-category.dto';
+import { PaginationQueryDto } from './../common/dto/pagination-query.dto';
 
 @Injectable()
 export class CategoriesService {
@@ -12,11 +13,14 @@ export class CategoriesService {
     private readonly categoryRepository: Repository<Category>,
   ) {}
 
-  findAll() {
+  findAll(paginationQuery: PaginationQueryDto) {
+    const { limit, offset } = paginationQuery;
     return this.categoryRepository.find({
       relations: {
         products: true,
       },
+      skip: offset,
+      take: limit,
     });
   }
 

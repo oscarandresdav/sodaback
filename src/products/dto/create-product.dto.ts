@@ -1,4 +1,5 @@
 import { IsBoolean, IsNumber, IsOptional, IsString } from 'class-validator';
+import { Category } from '../../categories/entities/category.entity';
 
 export class CreateProductDto {
   @IsString()
@@ -29,4 +30,8 @@ export class CreateProductDto {
   @IsBoolean()
   @IsOptional()
   readonly status: boolean;
+
+  @IsString()
+  @IsOptional()
+  readonly category: Category;
 }

@@ -11,15 +11,15 @@ import {
 } from '@nestjs/common';
 import { CreateCategoryDto } from './dto/create-category.dto';
 import { UpdateCategoryDto } from './dto/update-category.dto';
+import { PaginationQueryDto } from 'src/common/dto/pagination-query.dto';
 
 @Controller('categories')
 export class CategoriesController {
   constructor(private readonly categoriesService: CategoriesService) {}
 
   @Get()
-  findAll(@Query() paginationQuery) {
-    // const { limit, offset } = paginationQuery;
-    return this.categoriesService.findAll();
+  findAll(@Query() paginationQuery: PaginationQueryDto) {
+    return this.categoriesService.findAll(paginationQuery);
   }
 
   @Get(':id')
