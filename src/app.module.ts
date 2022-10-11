@@ -15,15 +15,17 @@ import { ProductsModule } from './products/products.module';
         DATABASE_PORT: Joi.number().default(3306),
       }),
     }),
-    TypeOrmModule.forRoot({
-      type: 'mysql', // type of our database
-      host: process.env.DATABASE_HOST, // database host
-      port: +process.env.DATABASE_PORT, // database host
-      username: process.env.DATABASE_USER, // username
-      password: process.env.DATABASE_PASSWORD, // user password
-      database: process.env.DATABASE_NAME, // name of our database,
-      autoLoadEntities: true, // models will be loaded automatically
-      synchronize: true, // your entities will be synced with the database(recommended: disable in prod)
+    TypeOrmModule.forRootAsync({
+      useFactory: () => ({
+        type: 'mysql', // type of our database
+        host: process.env.DATABASE_HOST, // database host
+        port: +process.env.DATABASE_PORT, // database host
+        username: process.env.DATABASE_USER, // username
+        password: process.env.DATABASE_PASSWORD, // user password
+        database: process.env.DATABASE_NAME, // name of our database,
+        autoLoadEntities: true, // models will be loaded automatically
+        synchronize: true, // your entities will be synced with the database(recommended: disable in prod)
+      }),
     }),
     CategoriesModule,
     ProductsModule,
