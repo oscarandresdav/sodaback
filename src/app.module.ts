@@ -1,3 +1,4 @@
+import * as Joi from '@hapi/joi';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -8,7 +9,12 @@ import { ProductsModule } from './products/products.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot({
+      validationSchema: Joi.object({
+        DATABASE_HOST: Joi.required(),
+        DATABASE_PORT: Joi.number().default(3306),
+      }),
+    }),
     TypeOrmModule.forRoot({
       type: 'mysql', // type of our database
       host: process.env.DATABASE_HOST, // database host
