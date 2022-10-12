@@ -14,13 +14,31 @@ export class Product {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ length: 45, unique: true })
+  @Column({
+    length: 45,
+    unique: true,
+    transformer: {
+      to: (value: string) => value.trim().toUpperCase(),
+      from: (value: string) => value,
+    },
+  })
   mainCode: string;
 
-  @Column({ length: 45, unique: true, nullable: true })
+  @Column({
+    length: 45,
+    unique: true,
+    nullable: true,
+  })
   auxCode: string;
 
-  @Column({ length: 255, unique: true })
+  @Column({
+    length: 255,
+    unique: true,
+    transformer: {
+      to: (value: string) => value.trim().toUpperCase(),
+      from: (value: string) => value,
+    },
+  })
   name: string;
 
   @Column({ type: 'text', nullable: true })

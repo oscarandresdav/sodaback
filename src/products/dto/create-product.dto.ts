@@ -1,4 +1,10 @@
-import { IsBoolean, IsNumber, IsOptional, IsString } from 'class-validator';
+import {
+  IsBoolean,
+  IsNumber,
+  IsOptional,
+  IsPositive,
+  IsString,
+} from 'class-validator';
 import { Category } from '../../categories/entities/category.entity';
 
 export class CreateProductDto {
@@ -18,10 +24,12 @@ export class CreateProductDto {
 
   @IsNumber()
   @IsOptional()
+  @IsPositive()
   readonly stock: number;
 
   @IsNumber()
   @IsOptional()
+  @IsPositive()
   readonly minimunStock: number;
 
   @IsNumber()

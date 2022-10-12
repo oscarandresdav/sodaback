@@ -14,7 +14,14 @@ export class Category {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ length: 45, unique: true })
+  @Column({
+    length: 45,
+    unique: true,
+    transformer: {
+      to: (value: string) => value.trim().toUpperCase(),
+      from: (value: string) => value,
+    },
+  })
   name: string;
 
   @Column({ default: true })
