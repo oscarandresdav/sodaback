@@ -1,4 +1,5 @@
 import { Category } from '../../categories/entities/category.entity';
+import { Price } from '../../prices/entities/price.entity';
 import {
   Column,
   CreateDateColumn,
@@ -67,4 +68,7 @@ export class Product {
 
   @ManyToOne(() => Category, (category) => category.products)
   category: Category;
+
+  @ManyToOne(() => Price, (price) => price.products)
+  price: Price;
 }
