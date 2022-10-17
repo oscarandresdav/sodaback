@@ -8,6 +8,7 @@ import { CategoriesModule } from './categories/categories.module';
 import { ProductsModule } from './products/products.module';
 import { PricesModule } from './prices/prices.module';
 import { BrandsModule } from './brands/brands.module';
+import { TypeProductsModule } from './typeProducts/typeProducts.module';
 
 @Module({
   imports: [
@@ -33,6 +34,7 @@ import { BrandsModule } from './brands/brands.module';
     ProductsModule,
     PricesModule,
     BrandsModule,
+    TypeProductsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

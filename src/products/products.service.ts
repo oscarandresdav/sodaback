@@ -16,7 +16,12 @@ export class ProductsService {
   findAll(paginationQuery: PaginationQueryDto) {
     const { limit, offset } = paginationQuery;
     return this.productRepository.find({
-      relations: { category: true, price: true, brand: true },
+      relations: {
+        category: true,
+        price: true,
+        brand: true,
+        typeProduct: true,
+      },
       skip: offset,
       take: limit,
     });

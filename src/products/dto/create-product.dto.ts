@@ -8,6 +8,7 @@ import {
 import { Category } from '../../categories/entities/category.entity';
 import { Price } from '../../prices/entities/price.entity';
 import { Brand } from '../../brands/entities/brand.entity';
+import { TypeProduct } from '../../typeProducts/entities/typeProduct.entity';
 
 export class CreateProductDto {
   @IsString()
@@ -52,4 +53,8 @@ export class CreateProductDto {
   @IsString()
   @IsOptional()
   readonly brand: Brand;
+
+  @IsString()
+  @IsOptional()
+  readonly typeProduct: TypeProduct;
 }

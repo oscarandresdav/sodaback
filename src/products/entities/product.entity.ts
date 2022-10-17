@@ -10,6 +10,7 @@ import {
   VersionColumn,
 } from 'typeorm';
 import { Brand } from 'src/brands/entities/brand.entity';
+import { TypeProduct } from '../../typeProducts/entities/typeProduct.entity';
 
 @Entity()
 export class Product {
@@ -75,4 +76,7 @@ export class Product {
 
   @ManyToOne(() => Price, (price) => price.products)
   price: Price;
+
+  @ManyToOne(() => TypeProduct, (typeProduct) => typeProduct.products)
+  typeProduct: TypeProduct;
 }
