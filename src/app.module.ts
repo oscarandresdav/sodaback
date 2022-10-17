@@ -9,6 +9,7 @@ import { ProductsModule } from './products/products.module';
 import { PricesModule } from './prices/prices.module';
 import { BrandsModule } from './brands/brands.module';
 import { TypeProductsModule } from './typeProducts/typeProducts.module';
+import { IvaRatesModule } from './ivarates/ivaRates.module';
 
 @Module({
   imports: [
@@ -35,6 +36,7 @@ import { TypeProductsModule } from './typeProducts/typeProducts.module';
     PricesModule,
     BrandsModule,
     TypeProductsModule,
+    IvaRatesModule,
   ],
   controllers: [AppController],
   providers: [AppService],

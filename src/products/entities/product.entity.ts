@@ -11,6 +11,7 @@ import {
 } from 'typeorm';
 import { Brand } from 'src/brands/entities/brand.entity';
 import { TypeProduct } from '../../typeProducts/entities/typeProduct.entity';
+import { IvaRate } from '../../ivarates/entities/ivaRate.entity';
 
 @Entity()
 export class Product {
@@ -79,4 +80,7 @@ export class Product {
 
   @ManyToOne(() => TypeProduct, (typeProduct) => typeProduct.products)
   typeProduct: TypeProduct;
+
+  @ManyToOne(() => IvaRate, (ivaRate) => ivaRate.products)
+  ivaRate: IvaRate;
 }

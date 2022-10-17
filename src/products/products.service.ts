@@ -21,6 +21,7 @@ export class ProductsService {
         price: true,
         brand: true,
         typeProduct: true,
+        ivaRate: true,
       },
       skip: offset,
       take: limit,
