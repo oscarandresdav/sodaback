@@ -22,6 +22,7 @@ export class ProductsService {
         brand: true,
         typeProduct: true,
         ivaRate: true,
+        iceRate: true,
       },
       skip: offset,
       take: limit,

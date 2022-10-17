@@ -12,6 +12,7 @@ import {
 import { Brand } from 'src/brands/entities/brand.entity';
 import { TypeProduct } from '../../typeProducts/entities/typeProduct.entity';
 import { IvaRate } from '../../ivarates/entities/ivaRate.entity';
+import { IceRate } from '../../icerates/entities/iceRate.entity';
 
 @Entity()
 export class Product {
@@ -83,4 +84,7 @@ export class Product {
 
   @ManyToOne(() => IvaRate, (ivaRate) => ivaRate.products)
   ivaRate: IvaRate;
+
+  @ManyToOne(() => IceRate, (iceRate) => iceRate.products)
+  iceRate: IceRate;
 }
