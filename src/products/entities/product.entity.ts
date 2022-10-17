@@ -13,6 +13,7 @@ import { Brand } from 'src/brands/entities/brand.entity';
 import { TypeProduct } from '../../typeProducts/entities/typeProduct.entity';
 import { IvaRate } from '../../ivarates/entities/ivaRate.entity';
 import { IceRate } from '../../icerates/entities/iceRate.entity';
+import { UnitMeasurement } from '../../unitMeasurement/entities/unitMeasurement.entity';
 
 @Entity()
 export class Product {
@@ -87,4 +88,10 @@ export class Product {
 
   @ManyToOne(() => IceRate, (iceRate) => iceRate.products)
   iceRate: IceRate;
+
+  @ManyToOne(
+    () => UnitMeasurement,
+    (unitMeasurement) => unitMeasurement.products,
+  )
+  unitMeasurement: IceRate;
 }

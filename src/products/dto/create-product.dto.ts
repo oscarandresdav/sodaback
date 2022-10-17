@@ -11,6 +11,7 @@ import { Brand } from '../../brands/entities/brand.entity';
 import { TypeProduct } from '../../typeProducts/entities/typeProduct.entity';
 import { IvaRate } from '../../ivarates/entities/ivaRate.entity';
 import { IceRate } from '../../icerates/entities/iceRate.entity';
+import { UnitMeasurement } from '../../unitMeasurement/entities/unitMeasurement.entity';
 
 export class CreateProductDto {
   @IsString()
@@ -63,8 +64,12 @@ export class CreateProductDto {
   @IsString()
   @IsOptional()
   readonly ivaRate: IvaRate;
-  
+
   @IsString()
   @IsOptional()
   readonly iceRate: IceRate;
+
+  @IsString()
+  @IsOptional()
+  readonly unitMeasurement: UnitMeasurement;
 }
