@@ -9,6 +9,7 @@ import {
   UpdateDateColumn,
   VersionColumn,
 } from 'typeorm';
+import { Brand } from 'src/brands/entities/brand.entity';
 
 @Entity()
 export class Product {
@@ -68,6 +69,9 @@ export class Product {
 
   @ManyToOne(() => Category, (category) => category.products)
   category: Category;
+
+  @ManyToOne(() => Brand, (brand) => brand.products)
+  brand: Brand;
 
   @ManyToOne(() => Price, (price) => price.products)
   price: Price;

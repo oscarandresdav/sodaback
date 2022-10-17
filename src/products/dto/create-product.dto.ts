@@ -7,6 +7,7 @@ import {
 } from 'class-validator';
 import { Category } from '../../categories/entities/category.entity';
 import { Price } from '../../prices/entities/price.entity';
+import { Brand } from '../../brands/entities/brand.entity';
 
 export class CreateProductDto {
   @IsString()
@@ -47,4 +48,8 @@ export class CreateProductDto {
   @IsString()
   @IsOptional()
   readonly price: Price;
+
+  @IsString()
+  @IsOptional()
+  readonly brand: Brand;
 }
