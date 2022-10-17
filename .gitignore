@@ -21,6 +21,9 @@ lerna-debug.log*
 # Env
 *.env
 
+# Docker Compose
+docker-compose.yml
+
 # IDEs and editors
 /.idea
 .project

@@ -11,7 +11,7 @@ import { Product } from '../../products/entities/product.entity';
 
 @Entity()
 export class Price {
-  @PrimaryGeneratedColumn('identity')
+  @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column({ type: 'decimal', precision: 12, scale: 4 })
