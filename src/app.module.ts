@@ -12,6 +12,7 @@ import { TypeProductsModule } from './typeProducts/typeProducts.module';
 import { IvaRatesModule } from './ivarates/ivaRates.module';
 import { IceRatesModule } from './icerates/IceRates.module';
 import { UnitMeasurementsModule } from './unitMeasurement/unitMeasurements.module';
+import { SidebarModule } from './sidebar/sidebar.module';
 
 @Module({
   imports: [
@@ -41,6 +42,7 @@ import { UnitMeasurementsModule } from './unitMeasurement/unitMeasurements.modul
     IvaRatesModule,
     IceRatesModule,
     UnitMeasurementsModule,
+    SidebarModule,
   ],
   controllers: [AppController],
   providers: [AppService],
