@@ -1,4 +1,4 @@
-import { IvaRatesService } from './ivaRates.service';
+import { IvaRatesService } from './iva-rates.service';
 import {
   Body,
   Controller,

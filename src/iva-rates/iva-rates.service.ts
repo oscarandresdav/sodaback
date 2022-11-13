@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { IvaRate } from './entities/ivaRate.entity';
+import { IvaRate } from './entities/iva-rate.entity';
 import { CreateIvaRateDto } from './dto/create-iva-rate.dto';
 import { UpdateIvaRateDto } from './dto/update-iva-rate.dto';
 import { PaginationQueryDto } from '../common/dto/pagination-query.dto';

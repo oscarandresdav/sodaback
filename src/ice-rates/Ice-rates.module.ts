@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { IceRatesController } from './iceRates.controller';
-import { IceRatesService } from './iceRates.service';
-import { IceRate } from './entities/iceRate.entity';
+import { IceRatesController } from './ice-rates.controller';
+import { IceRatesService } from './ice-rates.service';
+import { IceRate } from './entities/ice-rate.entity';
 
 @Module({
   imports: [TypeOrmModule.forFeature([IceRate])],

@@ -15,13 +15,13 @@ export class Price {
   id: string;
 
   @Column({ type: 'decimal', precision: 12, scale: 4 })
-  priceNonTax: number;
+  price_non_tax: number;
 
   @Column({ type: 'decimal', precision: 10, scale: 4 })
-  percentageMarginSale: number;
+  percentage_margin_sale: number;
 
   @Column({ type: 'decimal', precision: 12, scale: 4 })
-  priceTax: number;
+  price_tax: number;
 
   @Column({ default: true })
   status: boolean;

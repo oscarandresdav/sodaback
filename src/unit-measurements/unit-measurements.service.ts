@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { UnitMeasurement } from './entities/unitMeasurement.entity';
+import { UnitMeasurement } from './entities/unit-measurement.entity';
 import { CreateUnitMeasurementDto } from './dto/create-unit-measurement.dto';
 import { UpdateUnitMeasurementDto } from './dto/update-unit-measurement.dto';
 import { PaginationQueryDto } from '../common/dto/pagination-query.dto';

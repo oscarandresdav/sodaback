@@ -1,4 +1,4 @@
-import { UnitMeasurementsService } from './unitMeasurements.service';
+import { UnitMeasurementsService } from './unit-measurements.service';
 import {
   Body,
   Controller,

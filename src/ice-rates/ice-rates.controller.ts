@@ -1,4 +1,4 @@
-import { IceRatesService } from './iceRates.service';
+import { IceRatesService } from './ice-rates.service';
 import {
   Body,
   Controller,

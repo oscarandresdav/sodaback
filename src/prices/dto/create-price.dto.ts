@@ -2,13 +2,13 @@ import { IsBoolean, IsNumber, IsOptional } from 'class-validator';
 
 export class CreatePriceDto {
   @IsNumber()
-  readonly priceNonTax: number;
+  readonly price_non_tax: number;
 
   @IsNumber()
-  readonly percentageMarginSale: number;
+  readonly percentage_margin_sale: number;
 
   @IsNumber()
-  readonly priceTax: number;
+  readonly price_tax: number;
 
   @IsBoolean()
   @IsOptional()

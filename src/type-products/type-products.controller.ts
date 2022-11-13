@@ -1,4 +1,4 @@
-import { TypeProductsService } from './typeProducts.service';
+import { TypeProductsService } from './type-products.service';
 import {
   Body,
   Controller,

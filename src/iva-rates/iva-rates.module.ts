@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { IvaRatesController } from './ivaRates.controller';
-import { IvaRatesService } from './ivaRates.service';
-import { IvaRate } from './entities/ivaRate.entity';
+import { IvaRatesController } from './iva-rates.controller';
+import { IvaRatesService } from './iva-rates.service';
+import { IvaRate } from './entities/iva-rate.entity';
 
 @Module({
   imports: [TypeOrmModule.forFeature([IvaRate])],

@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UnitMeasurementsController } from './unitMeasurements.controller';
-import { UnitMeasurementsService } from './unitMeasurements.service';
-import { UnitMeasurement } from './entities/unitMeasurement.entity';
+import { UnitMeasurementsController } from './unit-measurements.controller';
+import { UnitMeasurementsService } from './unit-measurements.service';
+import { UnitMeasurement } from './entities/unit-measurement.entity';
 
 @Module({
   imports: [TypeOrmModule.forFeature([UnitMeasurement])],

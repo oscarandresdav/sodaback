@@ -8,11 +8,12 @@ import { CategoriesModule } from './categories/categories.module';
 import { ProductsModule } from './products/products.module';
 import { PricesModule } from './prices/prices.module';
 import { BrandsModule } from './brands/brands.module';
-import { TypeProductsModule } from './typeProducts/typeProducts.module';
-import { IvaRatesModule } from './ivarates/ivaRates.module';
-import { IceRatesModule } from './icerates/IceRates.module';
-import { UnitMeasurementsModule } from './unitMeasurement/unitMeasurements.module';
+import { TypeProductsModule } from './type-products/type-products.module';
+import { IvaRatesModule } from './iva-rates/iva-rates.module';
+import { IceRatesModule } from './ice-rates/Ice-rates.module';
+import { UnitMeasurementsModule } from './unit-measurements/unit-measurements.module';
 import { SidebarModule } from './sidebar/sidebar.module';
+import { ContactsModule } from './contacts/contacts.module';
 
 @Module({
   imports: [
@@ -43,6 +44,7 @@ import { SidebarModule } from './sidebar/sidebar.module';
     IceRatesModule,
     UnitMeasurementsModule,
     SidebarModule,
+    ContactsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

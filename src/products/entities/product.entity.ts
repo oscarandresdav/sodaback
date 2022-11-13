@@ -10,10 +10,10 @@ import {
   VersionColumn,
 } from 'typeorm';
 import { Brand } from 'src/brands/entities/brand.entity';
-import { TypeProduct } from '../../typeProducts/entities/typeProduct.entity';
-import { IvaRate } from '../../ivarates/entities/ivaRate.entity';
-import { IceRate } from '../../icerates/entities/iceRate.entity';
-import { UnitMeasurement } from '../../unitMeasurement/entities/unitMeasurement.entity';
+import { TypeProduct } from '../../type-products/entities/type-product.entity';
+import { IvaRate } from '../../iva-rates/entities/iva-rate.entity';
+import { IceRate } from '../../ice-rates/entities/ice-rate.entity';
+import { UnitMeasurement } from '../../unit-measurements/entities/unit-measurement.entity';
 
 @Entity()
 export class Product {
