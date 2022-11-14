@@ -27,9 +27,13 @@ export class ContactsController {
     return this.contactsService.findOne(id);
   }
 
+  @Get('byname/:name')
+  findByName(@Param('name') name: string) {
+    return this.contactsService.findByName(name);
+  }
+
   @Post()
   create(@Body() createContactDto: CreateContactDto) {
-    console.log(createContactDto instanceof CreateContactDto);
     return this.contactsService.create(createContactDto);
   }
 

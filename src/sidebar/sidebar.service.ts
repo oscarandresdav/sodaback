@@ -26,7 +26,7 @@ export class SidebarService {
       where: { id: +id },
     });
     if (!sidebar) {
-      throw new NotFoundException(`Sidebar #${id} not found`);
+      throw new NotFoundException(`Sidebar with id=>{${id}} not found`);
     }
     return sidebar;
   }
@@ -42,7 +42,7 @@ export class SidebarService {
       ...updateSidebarDto,
     });
     if (!sidebar) {
-      throw new NotFoundException(`Sidebar #${id} not found`);
+      throw new NotFoundException(`Sidebar with id=>{${id}} not found`);
     }
     return this.sidebarRepository.save(sidebar);
   }

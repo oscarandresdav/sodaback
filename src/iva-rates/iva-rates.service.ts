@@ -30,7 +30,7 @@ export class IvaRatesService {
       relations: { products: true },
     });
     if (!ivaRate) {
-      throw new NotFoundException(`Iva Rate #${id} not found`);
+      throw new NotFoundException(`Iva Rate with id=>{${id}} not found`);
     }
     return ivaRate;
   }
@@ -46,7 +46,7 @@ export class IvaRatesService {
       ...updateIvaRateDto,
     });
     if (!ivaRate) {
-      throw new NotFoundException(`Iva Rate #${id} not found`);
+      throw new NotFoundException(`Iva Rate with id=>{${id}} not found`);
     }
     return this.ivaRateRepository.save(ivaRate);
   }

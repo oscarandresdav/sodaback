@@ -1,4 +1,6 @@
 import {
+  BeforeInsert,
+  BeforeUpdate,
   Column,
   CreateDateColumn,
   Entity,
@@ -15,20 +17,12 @@ export class Contact {
   @Column({
     length: 255,
     unique: true,
-    transformer: {
-      to: (value: string) => value.trim().toUpperCase(),
-      from: (value: string) => value,
-    },
   })
   name: string;
 
   @Column({
     length: 255,
     nullable: true,
-    transformer: {
-      to: (value: string) => value.trim().toUpperCase(),
-      from: (value: string) => value,
-    },
   })
   trade_name: string;
 
@@ -61,4 +55,19 @@ export class Contact {
 
   @VersionColumn({ nullable: true })
   revision: number;
+
+  @BeforeInsert()
+  @BeforeUpdate()
+  fieldTransformCase() {
+    this.name = this.name.trim().toUpperCase();
+    if (this.trade_name) {
+      this.trade_name = this.trade_name.trim().toUpperCase();
+    }
+    if (this.address) {
+      this.address = this.address.trim().toUpperCase();
+    }
+    if (this.email) {
+      this.email = this.email.trim().toLowerCase();
+    }
+  }
 }

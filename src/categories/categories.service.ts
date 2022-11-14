@@ -30,7 +30,7 @@ export class CategoriesService {
       relations: { products: true },
     });
     if (!category) {
-      throw new NotFoundException(`Category #${id} not found`);
+      throw new NotFoundException(`Category with id=>{${id}} not found`);
     }
     return category;
   }
@@ -46,7 +46,7 @@ export class CategoriesService {
       ...updateCategoryDto,
     });
     if (!category) {
-      throw new NotFoundException(`Category #${id} not found`);
+      throw new NotFoundException(`Category with id=>{${id}} not found`);
     }
     return this.categoryRepository.save(category);
   }

@@ -1,6 +1,8 @@
 import { Category } from '../../categories/entities/category.entity';
 import { Price } from '../../prices/entities/price.entity';
 import {
+  BeforeInsert,
+  BeforeUpdate,
   Column,
   CreateDateColumn,
   Entity,
@@ -23,10 +25,6 @@ export class Product {
   @Column({
     length: 45,
     unique: true,
-    transformer: {
-      to: (value: string) => value.trim().toUpperCase(),
-      from: (value: string) => value,
-    },
   })
   mainCode: string;
 
@@ -40,10 +38,6 @@ export class Product {
   @Column({
     length: 255,
     unique: true,
-    transformer: {
-      to: (value: string) => value.trim().toUpperCase(),
-      from: (value: string) => value,
-    },
   })
   name: string;
 
@@ -70,6 +64,16 @@ export class Product {
 
   @VersionColumn({ nullable: true })
   revision: number;
+
+  @BeforeInsert()
+  @BeforeUpdate()
+  fieldTransformCase() {
+    this.name = this.name.trim().toUpperCase();
+    this.mainCode = this.mainCode.trim().toUpperCase();
+    if (this.auxCode) {
+      this.auxCode = this.auxCode.trim().toUpperCase();
+    }
+  }
 
   @ManyToOne(() => Category, (category) => category.products)
   category: Category;

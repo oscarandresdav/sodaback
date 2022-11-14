@@ -1,5 +1,7 @@
 import { Product } from '../../products/entities/product.entity';
 import {
+  BeforeInsert,
+  BeforeUpdate,
   Column,
   CreateDateColumn,
   Entity,
@@ -27,10 +29,6 @@ export class IvaRate {
   @Column({
     length: 3,
     unique: true,
-    transformer: {
-      to: (value: string) => value.trim().toUpperCase(),
-      from: (value: string) => value,
-    },
   })
   code: string;
 
@@ -48,6 +46,12 @@ export class IvaRate {
 
   @VersionColumn({ nullable: true })
   revision: number;
+
+  @BeforeInsert()
+  @BeforeUpdate()
+  fieldTransformCase() {
+    this.name = this.name.trim().toUpperCase();
+  }
 
   @OneToMany(() => Product, (product) => product.brand)
   products: Product[];

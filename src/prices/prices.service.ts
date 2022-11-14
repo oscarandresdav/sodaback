@@ -30,7 +30,7 @@ export class PricesService {
       relations: { products: true },
     });
     if (!price) {
-      throw new NotFoundException(`Price #${id} not found`);
+      throw new NotFoundException(`Price with id=>{${id}} not found`);
     }
     return price;
   }
@@ -46,7 +46,7 @@ export class PricesService {
       ...updatePriceDto,
     });
     if (!price) {
-      throw new NotFoundException(`Price #${id} not found`);
+      throw new NotFoundException(`Price with id=>{${id}} not found`);
     }
     return this.priceRepository.save(price);
   }

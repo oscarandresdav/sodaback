@@ -30,7 +30,7 @@ export class IceRatesService {
       relations: { products: true },
     });
     if (!iceRate) {
-      throw new NotFoundException(`Ice Rate #${id} not found`);
+      throw new NotFoundException(`Ice Rate with id=>{${id}} not found`);
     }
     return iceRate;
   }
@@ -46,7 +46,7 @@ export class IceRatesService {
       ...updateIceRateDto,
     });
     if (!iceRate) {
-      throw new NotFoundException(`Ice Rate #${id} not found`);
+      throw new NotFoundException(`Ice Rate with id=>{${id}} not found`);
     }
     return this.iceRateRepository.save(iceRate);
   }

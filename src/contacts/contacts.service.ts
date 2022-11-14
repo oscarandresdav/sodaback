@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Like, Repository } from 'typeorm';
 import { Contact } from './entities/contact.entity';
 import { CreateContactDto } from './dto/create-contact.dto';
 import { UpdateContactDto } from './dto/update-contact.dto';
@@ -26,7 +26,18 @@ export class ContactsService {
       where: { id: id },
     });
     if (!contact) {
-      throw new NotFoundException(`Contact #${id} not found`);
+      throw new NotFoundException(`Contact with id=>{${id}} not found`);
+    }
+    return contact;
+  }
+
+  async findByName(name: string) {
+    console.log(name);
+    const contact = await this.contactRepository.findBy({
+      name: Like(`%${name}%`),
+    });
+    if (!contact || contact.length === 0) {
+      throw new NotFoundException(`Contact findbyname #${name} not found`);
     }
     return contact;
   }
@@ -42,7 +53,7 @@ export class ContactsService {
       ...updateContactDto,
     });
     if (!contact) {
-      throw new NotFoundException(`Contact #${id} not found`);
+      throw new NotFoundException(`Contact with id=>{${id}} not found`);
     }
     return this.contactRepository.save(contact);
   }

@@ -30,7 +30,7 @@ export class TypeProductsService {
       relations: { products: true },
     });
     if (!typeProduct) {
-      throw new NotFoundException(`Type of product #${id} not found`);
+      throw new NotFoundException(`Type of product with id=>{${id}} not found`);
     }
     return typeProduct;
   }
@@ -46,7 +46,7 @@ export class TypeProductsService {
       ...updateTypeProductDto,
     });
     if (!typeProduct) {
-      throw new NotFoundException(`Type of product #${id} not found`);
+      throw new NotFoundException(`Type of product with id=>{${id}} not found`);
     }
     return this.typeProductRepository.save(typeProduct);
   }

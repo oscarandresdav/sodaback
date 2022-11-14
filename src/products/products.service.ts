@@ -35,7 +35,7 @@ export class ProductsService {
       relations: { category: true },
     });
     if (!product) {
-      throw new NotFoundException(`Product #${id} not found`);
+      throw new NotFoundException(`Product with id=>{${id}} not found`);
     }
     return product;
   }
@@ -51,7 +51,7 @@ export class ProductsService {
       ...updateProductDto,
     });
     if (!product) {
-      throw new NotFoundException(`Product #${id} not found`);
+      throw new NotFoundException(`Product with id=>{${id}} not found`);
     }
     return this.productRepository.save(product);
   }

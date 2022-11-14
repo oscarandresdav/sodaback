@@ -30,7 +30,9 @@ export class UnitMeasurementsService {
       relations: { products: true },
     });
     if (!unitMeasurement) {
-      throw new NotFoundException(`Unit of Measurement #${id} not found`);
+      throw new NotFoundException(
+        `Unit of Measurement with id=>{${id}} not found`,
+      );
     }
     return unitMeasurement;
   }
@@ -48,7 +50,9 @@ export class UnitMeasurementsService {
       ...updateUnitMeasurementDto,
     });
     if (!unitMeasurement) {
-      throw new NotFoundException(`Unit of Measurement #${id} not found`);
+      throw new NotFoundException(
+        `Unit of Measurement with id=>{${id}} not found`,
+      );
     }
     return this.unitMeasurementRepository.save(unitMeasurement);
   }

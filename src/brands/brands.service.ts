@@ -30,7 +30,7 @@ export class BrandsService {
       relations: { products: true },
     });
     if (!brand) {
-      throw new NotFoundException(`Brand #${id} not found`);
+      throw new NotFoundException(`Brand with id=>{${id}} not found`);
     }
     return brand;
   }
@@ -46,7 +46,7 @@ export class BrandsService {
       ...updateBrandDto,
     });
     if (!brand) {
-      throw new NotFoundException(`Brand #${id} not found`);
+      throw new NotFoundException(`Brand with id=>{${id}} not found`);
     }
     return this.brandRepository.save(brand);
   }
